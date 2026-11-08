@@ -1,0 +1,50 @@
+name: Windows alpha checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: windows-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+          cache: npm
+      - uses: dtolnay/rust-toolchain@686976e191b89faba57d3206551f0f330d8cb249 # stable ref, pinned
+        with:
+          toolchain: '1.99.0'
+          components: rustfmt, clippy
+      - run: npm ci
+      - run: ./tools/check-source-size.ps1
+      - run: npm run check
+      - run: npm run build
+      - run: cargo fmt --manifest-path src-tauri/Cargo.toml --check
+      - run: cargo clippy --locked --manifest-path src-tauri/Cargo.toml --all-targets --features desktop,dev-tools -- -D warnings
+      - run: cargo test --features dev-tools --locked --manifest-path src-tauri/Cargo.toml
+      - run: npm run desktop:build -- --ci
+      - name: Hash installer artifacts
+        shell: pwsh
+        run: |
+          $directory = 'src-tauri/target/release/bundle/nsis'
+          Get-ChildItem -LiteralPath $directory -Filter '*.exe' | Sort-Object Name | ForEach-Object {
+            $hash = (Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash.ToLowerInvariant()
+            "$hash *$($_.Name)"
+          } | Set-Content -LiteralPath "$directory/SHA256SUMS.txt" -Encoding utf8
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: jentrics-windows-alpha
+          path: |
+            src-tauri/target/release/bundle/nsis/*.exe
+            src-tauri/target/release/bundle/nsis/SHA256SUMS.txt
+          if-no-files-found: error
+          retention-days: 7

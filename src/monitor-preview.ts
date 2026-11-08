@@ -1,0 +1,3 @@
+import type { MonitorSettings, MonitorSettingsView } from "./monitor-types.ts";
+export function previewMonitor() { let settings: MonitorSettings = { paused: false, intervalMinutes: 5 }; function view(): MonitorSettingsView { return { settings: { ...settings }, error: null, nextCheckMs: null, effectiveIntervalMinutes: null, lastClockChangeMs: null }; } return { getMonitorSettings: async () => view(), setMonitorSettings: async (next: MonitorSettings) => { if (![5, 10, 15, 30].includes(next.intervalMinutes))
+        throw new Error("Invalid synthetic interval"); settings = { ...next }; return view(); } }; }

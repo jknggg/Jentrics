@@ -1,0 +1,12 @@
+{
+  "rate_limits": {
+    "five_hour": {"used_percentage": 23.5, "resets_at": 1738425600},
+    "seven_day": {"used_percentage": null, "resets_at": null}
+  },
+  "session_id": "synthetic-secret-session",
+  "cwd": "synthetic-secret-path",
+  "transcript_path": "synthetic-secret-transcript",
+  "model": {"id": "synthetic-model"},
+  "cost": {"total_cost_usd": 0.5},
+  "context_window": {"current_usage": {"input_tokens": 400}}
+}

@@ -1,0 +1,10 @@
+{
+  "range":{"from":1790726400000,"to":1793318400000},
+  "sessions":4,"subagents":1,"prompts":8,"steps":12,
+  "tokens":{"input":1000,"output":200,"reasoning":50,"cache":{"read":300,"write":100}},
+  "cost":0.125,
+  "tools":{"mode":"detail","totals":{"calls":2,"succeeded":2,"failed":0,"unfinished":0},"usage":[{"name":"synthetic-private-tool","calls":2,"succeeded":2,"failed":0,"unfinished":0}]},
+  "activeDays":2,"streak":1,"activity":[],
+  "models":[{"model":{"providerID":"synthetic-private-provider","id":"synthetic-model"},"steps":12,"tokens":{"input":1000,"output":200,"reasoning":50,"cache":{"read":300,"write":100}},"cost":0.125}],
+  "private_future_field":"synthetic-private"
+}

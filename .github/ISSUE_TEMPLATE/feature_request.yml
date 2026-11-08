@@ -1,0 +1,14 @@
+name: Feature request
+description: Propose a concrete local monitoring workflow.
+body:
+  - type: textarea
+    id: workflow
+    attributes:
+      label: User workflow and expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: interface
+    attributes:
+      label: Documented provider interface, if relevant
+      description: Link public documentation. Do not share private endpoints, credentials, or real session data.

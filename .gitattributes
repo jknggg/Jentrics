@@ -1,0 +1,7 @@
+* text=auto eol=lf
+*.jpg binary
+*.png binary
+*.ico binary
+# Preserve third-party license wording and whitespace verbatim.
+THIRD_PARTY_NOTICES.txt -whitespace
+tools/licenses/* -whitespace

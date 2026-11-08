@@ -1,0 +1,60 @@
+[package]
+name = "jentrics"
+version = "0.1.0"
+description = "Local Windows tray utility for coding agent readiness"
+edition = "2021"
+license = "MIT"
+repository = "https://github.com/jknggg/Jentrics"
+default-run = "jentrics"
+
+[features]
+default = []
+dev-tools = []
+desktop = ["dep:tauri", "dep:tauri-build", "dep:tauri-plugin-single-instance", "dep:tauri-plugin-notification"]
+custom-protocol = ["tauri/custom-protocol"]
+
+[lib]
+name = "jentrics_core"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "process", "io-util", "time", "sync"] }
+tempfile = "3"
+rusqlite = { version = "0.38", features = ["bundled"] }
+tracing = { version = "=0.1.44", default-features = false, features = ["std"] }
+tracing-subscriber = { version = "=0.3.23", default-features = false, features = ["registry"] }
+tracing-appender = "=0.2.5"
+tauri = { version = "2", features = ["tray-icon"], optional = true }
+tauri-plugin-single-instance = { version = "2", optional = true }
+notify = "8.2.1"
+tauri-plugin-notification = { version = "2.8.0", optional = true }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["test-util"] }
+
+[build-dependencies]
+tauri-build = { version = "2", optional = true , features = [] }
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.61", features = ["Win32_Foundation", "Win32_System_JobObjects", "Win32_System_Threading", "Win32_System_Diagnostics_ToolHelp", "Win32_System_Diagnostics_Debug", "Win32_Security", "Win32_System_SystemInformation", "Win32_UI_Shell"] }
+
+[[bin]]
+name = "probe-helper"
+path = "tests/support/probe_helper.rs"
+required-features = ["dev-tools"]
+
+[[bin]]
+name = "provider_probe"
+path = "src/bin/provider_probe.rs"
+required-features = ["dev-tools"]
+
+[[bin]]
+name = "jentrics"
+path = "src/main.rs"
+required-features = ["desktop"]
+
+[[bin]]
+name = "wake-helper"
+path = "tests/support/wake_helper.rs"
+required-features = ["dev-tools"]

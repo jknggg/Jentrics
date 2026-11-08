@@ -1,0 +1,41 @@
+fn main() {
+    #[cfg(feature = "desktop")]
+    tauri_build::try_build(tauri_build::Attributes::new().app_manifest(
+        tauri_build::AppManifest::new().commands(&[
+            "get_dashboard_state",
+            "export_configuration",
+            "import_configuration",
+            "get_display_settings",
+            "set_display_settings",
+            "get_storage_maintenance",
+            "get_adapter_catalog",
+            "get_diagnostics_status",
+            "take_settings_request",
+            "get_history",
+            "get_history_settings",
+            "set_history_retention",
+            "clear_history",
+            "get_claude_bridge_status",
+            "prepare_claude_bridge",
+            "apply_claude_bridge",
+            "restore_claude_bridge",
+            "get_alert_settings",
+            "set_alert_settings",
+            "request_alert_permission",
+            "send_test_notification",
+            "get_metrics",
+            "set_metric_settings",
+            "clear_metric_history",
+            "get_pricing",
+            "set_price_override",
+            "remove_price_override",
+            "estimate_cost",
+            "get_monitor_settings",
+            "set_monitor_settings",
+            "refresh_agents_command",
+            "prepare_wake",
+            "confirm_wake",
+        ]),
+    ))
+    .expect("Tauri build configuration is invalid");
+}

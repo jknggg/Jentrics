@@ -1,0 +1,23 @@
+name: Bug report
+description: Report a reproducible Jentrics problem.
+body:
+  - type: markdown
+    attributes:
+      value: Do not paste credentials, provider settings, transcripts, raw CLI output, or databases. Use invented examples and redact paths/identities.
+  - type: input
+    id: versions
+    attributes:
+      label: Jentrics, Windows, and affected CLI versions
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps, expected result, and actual result
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Fixed diagnostic code or sanitized screenshot
+      description: Identify whether this is installed desktop behavior or synthetic browser preview.

@@ -1,0 +1,6 @@
+{
+  "metric":"claude_code.token.usage",
+  "model":"synthetic-claude-burst",
+  "type":"input",
+  "tokensPerPoint":1
+}

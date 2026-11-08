@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 1,
+  "revision": "2026-10-30.1",
+  "models": [
+    {
+      "modelId": "gpt-6.1-sol",
+      "revision": "2026-10-30.1",
+      "retrievedOn": "2026-10-30",
+      "sourceUrls": [
+        "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
+        "https://developers.openai.com/api/docs/pricing",
+        "https://developers.openai.com/api/docs/guides/prompt-caching"
+      ],
+      "longContextThresholdTokens": 272000,
+      "shortContext": {
+        "freshInputUsdPerMillion": 2,
+        "cacheReadUsdPerMillion": 0.1,
+        "cacheWrite": [
+          {
+            "ttl": "thirtyMinutes",
+            "usdPerMillion": 2.5
+          },
+          {
+            "ttl": "twelveHours",
+            "usdPerMillion": 5
+          }
+        ],
+        "outputUsdPerMillion": 10
+      },
+      "longContext": {
+        "freshInputUsdPerMillion": 4,
+        "cacheReadUsdPerMillion": 0.2,
+        "cacheWrite": [
+          {
+            "ttl": "thirtyMinutes",
+            "usdPerMillion": 5
+          },
+          {
+            "ttl": "twelveHours",
+            "usdPerMillion": 10
+          }
+        ],
+        "outputUsdPerMillion": 15
+      }
+    },
+    {
+      "modelId": "gpt-6.1-terra",
+      "revision": "2026-10-30.1",
+      "retrievedOn": "2026-10-30",
+      "sourceUrls": [
+        "https://developers.openai.com/api/docs/models/gpt-6.1-terra",
+        "https://developers.openai.com/api/docs/pricing",
+        "https://developers.openai.com/api/docs/guides/prompt-caching"
+      ],
+      "longContextThresholdTokens": 272000,
+      "shortContext": {
+        "freshInputUsdPerMillion": 1,
+        "cacheReadUsdPerMillion": 0.05,
+        "cacheWrite": [
+          {
+            "ttl": "thirtyMinutes",
+            "usdPerMillion": 1.25
+          },
+          {
+            "ttl": "twelveHours",
+            "usdPerMillion": 2.5
+          }
+        ],
+        "outputUsdPerMillion": 5
+      },
+      "longContext": {
+        "freshInputUsdPerMillion": 2,
+        "cacheReadUsdPerMillion": 0.1,
+        "cacheWrite": [
+          {
+            "ttl": "thirtyMinutes",
+            "usdPerMillion": 2.5
+          },
+          {
+            "ttl": "twelveHours",
+            "usdPerMillion": 5
+          }
+        ],
+        "outputUsdPerMillion": 7.5
+      }
+    },
+    {
+      "modelId": "claude-opus-5-5",
+      "revision": "2026-10-30.1",
+      "retrievedOn": "2026-10-30",
+      "sourceUrls": [
+        "https://platform.claude.com/docs/en/about-claude/pricing",
+        "https://platform.claude.com/docs/en/models/overview"
+      ],
+      "longContextThresholdTokens": null,
+      "shortContext": {
+        "freshInputUsdPerMillion": 4,
+        "cacheReadUsdPerMillion": 0.2,
+        "cacheWrite": [
+          {
+            "ttl": "fiveMinutes",
+            "usdPerMillion": 5
+          },
+          {
+            "ttl": "oneHour",
+            "usdPerMillion": 8
+          }
+        ],
+        "outputUsdPerMillion": 20
+      },
+      "longContext": {
+        "freshInputUsdPerMillion": 4,
+        "cacheReadUsdPerMillion": 0.2,
+        "cacheWrite": [
+          {
+            "ttl": "fiveMinutes",
+            "usdPerMillion": 5
+          },
+          {
+            "ttl": "oneHour",
+            "usdPerMillion": 8
+          }
+        ],
+        "outputUsdPerMillion": 20
+      }
+    },
+    {
+      "modelId": "claude-sonnet-5-5",
+      "revision": "2026-10-30.1",
+      "retrievedOn": "2026-10-30",
+      "sourceUrls": [
+        "https://platform.claude.com/docs/en/about-claude/pricing",
+        "https://platform.claude.com/docs/en/models/overview"
+      ],
+      "longContextThresholdTokens": null,
+      "shortContext": {
+        "freshInputUsdPerMillion": 2,
+        "cacheReadUsdPerMillion": 0.1,
+        "cacheWrite": [
+          {
+            "ttl": "fiveMinutes",
+            "usdPerMillion": 2.5
+          },
+          {
+            "ttl": "oneHour",
+            "usdPerMillion": 4
+          }
+        ],
+        "outputUsdPerMillion": 10
+      },
+      "longContext": {
+        "freshInputUsdPerMillion": 2,
+        "cacheReadUsdPerMillion": 0.1,
+        "cacheWrite": [
+          {
+            "ttl": "fiveMinutes",
+            "usdPerMillion": 2.5
+          },
+          {
+            "ttl": "oneHour",
+            "usdPerMillion": 4
+          }
+        ],
+        "outputUsdPerMillion": 10
+      }
+    }
+  ]
+}
